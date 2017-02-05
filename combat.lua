@@ -149,5 +149,25 @@ return {
         AshitaCore:GetChatManager():QueueCommand("/follow " .. config.leader, 1);
       end
     end
+    if (healing == false and main == Jobs.Bard) then
+      local i;
+      for i = 1, 5 do
+        local buffs = party:GetBuffs(i);
+        if (buffs[packets.status.EFFECT_BALLAD] ~= true) then
+          healing = true;
+          actions:queue(actions:new():next(partial(wait, 8))
+            :next(partial(magic, '"Mage\'s Ballad"', '"<me>"'))
+            :next(function(self) healing = false; end));
+          break;
+		  end
+		if (buffs[packets.status.EFFECT_PAEON] ~= true) then
+          healing = true;
+          actions:queue(actions:new():next(partial(wait, 8))
+            :next(partial(magic, '"Army\'s Paeon II"', '"<me>"'))
+            :next(function(self) healing = false; end));
+          break;
+		  end
+		end
   end
+end
 };
