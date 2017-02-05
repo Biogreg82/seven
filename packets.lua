@@ -85,6 +85,9 @@ local packets = {
     EFFECT_RERAISE                  = 113,
     EFFECT_FOOD                     = 251,
     EFFECT_POISON_II                = 540,
+    EFFECT_PAEON                  	= 195,
+	  EFFECT_MINUET                   = 198,
+	  EFFECT_BALLAD					          = 196,
   }
 
 };
